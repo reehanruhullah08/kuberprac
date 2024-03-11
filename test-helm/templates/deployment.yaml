@@ -24,7 +24,7 @@ spec:
         ports:
         - containerPort: {{.values.deployment.ports.containerPort}}
       imagePullSecrets:
-      - name: {{.values.deployment.imagePullSecrets.}}
+      - name: {{.values.deployment.imagePullSecrets.name}}
       volumes:
       - name: {{.values.deployment.volumes.name}}
         configMap:
