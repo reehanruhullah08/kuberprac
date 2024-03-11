@@ -9,6 +9,6 @@ deployment:
   imagePullSecrets:
     name: regcred
   volumes:
-    - name: db-connection
-      configMap:
-        name: test-cm
+    name: db-connection
+    configMap:
+      name: test-cm
