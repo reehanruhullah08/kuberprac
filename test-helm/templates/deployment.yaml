@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: {{ .Values.deployment.image.repositories}}:{{ .Values.deployment.image.tag }}
+        image: {{ .Values.deployment.image.repositories }}:{{ .Values.deployment.image.tag }}
         imagePullPolicy: {{ .Values.deployment.image.pullpolicy }}
         volumeMounts:
           - name: {{ .Values.deployment.volumes.name }}
