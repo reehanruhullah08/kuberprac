@@ -4,7 +4,6 @@ deployment:
   image:
     repository: reehanruhullah/dataphion_prac
     tag: 0.2
-    pullPolicy: IfNotPresent
   ports:
     containerPort: 8000
   imagePullSecrets:
