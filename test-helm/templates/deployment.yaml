@@ -18,9 +18,6 @@ spec:
       - name: python-app
         image: {{ .Values.deployment.image.repositories }}:{{ .Values.deployment.image.tag }}
         imagePullPolicy: {{ .Values.deployment.image.pullpolicy }}
-        volumeMounts:
-          - name: {{ .Values.deployment.volumes.name }}
-            mountPath: /opt
         ports:
         - containerPort: {{ .Values.deployment.ports.containerPort }}
       imagePullSecrets:
