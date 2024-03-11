@@ -1,0 +1,15 @@
+deployment:
+  name: sample-python-app
+  replicas: 3
+  image:
+    repository: reehanruhullah/dataphion_prac
+    tag: 0.2
+    pullPolicy: IfNotPresent
+  ports:
+    containerPort: 8000
+  imagePullSecrets:
+    - name: regcred
+  volumes:
+    - name: db-connection
+      configMap:
+        name: test-cm

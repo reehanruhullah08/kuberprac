@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.values.deployment.name}}
+  labels:
+    app: {{.values.deployment.name}}
+spec:
+  replicas: {{values.deployment.replicas}}
+  selector:
+    matchLabels:
+      app: {{.values.deployment.name}}
+  template:
+    metadata:
+      labels:
+        app: {{.values.deployment.name}}
+    spec:
+      containers:
+      - name: python-app
+        image: {{.values.deployment.image.repositories}}:{{ .Values.deployment.image.tag }}
+        imagePullPolicy: {{.values.deployment.image.pullpolicy}}
+        volumeMounts:
+          - name: {{.values.deployment.volumes.name}}
+            mountPath: /opt
+        ports:
+        - containerPort: {{.values.deployment.ports.containerPort}}
+      imagePullSecrets:
+      - name: {{.values.deployment.imagePullSecrets.}}
+      volumes:
+      - name: {{.values.deployment.volumes.name}}
+        configMap:
+          name: {{.values.deployment.volumes.configMap.name}}
