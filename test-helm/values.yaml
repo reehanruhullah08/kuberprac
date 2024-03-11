@@ -7,7 +7,7 @@ deployment:
   ports:
     containerPort: 8000
   imagePullSecrets:
-    - name: regcred
+    name: regcred
   volumes:
     - name: db-connection
       configMap:
